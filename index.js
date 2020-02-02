@@ -38,8 +38,17 @@ function palindromeSentence(str) {
     return "No, it is not a palindrome"
   }
 
+  if (str.length === 1){
+    return "A one letter word can't be a palindrome"
+  }
+  if (str.length === 2){
+    return "A two letter word can't be a palindrome"
+  }
   if (str.length === 0) {
     return "Empty sentence";
+  }
+  else {
+    return "Not a palindrome"
   }
 }
 
