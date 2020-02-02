@@ -1,4 +1,4 @@
-function palindrome(str) {
+function palindromeWord(str) {
   const strArr = str.toLowerCase().split(' ');
   const palindromeArr = []
   for (let i of strArr) {
@@ -25,14 +25,35 @@ function palindrome(str) {
   return palindromeArr[index];
 }
 
-const $ = n => document.querySelector(n)
+function palindromeSentence(str) {
+  const joinedStr = str.toLowerCase().split(' ').join('');
 
-$('#check').onclick = () => {
-  const result = palindrome($('#palindrome-input').value);
-  $('#result').innerHTML = `<b>${result}</b> is the longest palindrome word in the senetence`;
-  if (result.split(' ').length > 2){
-    $('#result').textContent = result;
+  const length = joinedStr.length;
+  if (length % 2 !== 0 && length > 2) {
+    const workWith = (length - 1) / 2;
+
+    if (joinedStr.slice(0, workWith) === joinedStr.slice(workWith + 1, (workWith * 2) + 1).split('').reverse().join('')) {
+      return "Yes, it is a palindrome"
+    }
+    return "No, it is not a palindrome"
+  }
+
+  if (str.length === 0) {
+    return "Empty sentence";
   }
 }
 
-console.log(palindrome("Madam Malayalam Arora teaches"));
+const $ = n => document.querySelector(n)
+
+$('#check-word').onclick = () => {
+  const result = palindromeWord($('#palindrome-word-input').value);
+  $('#word-result').innerHTML = `<b>${result}</b> is the longest palindrome word in the senetence`;
+  if (result.split(' ').length > 2) {
+    $('#word-result').textContent = result;
+  }
+}
+
+$('#check-sentence').onclick = () => {
+  const result = palindromeSentence($('#palindrome-sentence-input').value);
+  $('#sentence-result').textContent = result;
+}

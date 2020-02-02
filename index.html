@@ -1,23 +1,55 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hackmania Challenge</title>
   <style>
-    #palindrome-input {
-      padding:0.5rem;
-      max-width:20rem;
+    #palindrome-word-input {
+      padding: 0.1rem 0.5rem;
+      min-width: 20rem;
+      font-size: 1.1rem;
+      line-height: 2rem;
     }
-    #check {
-      padding:0.5rem;
+
+    #palindrome-sentence-input {
+      padding: 0.1rem 0.5rem;
+      min-width: 20rem;
+      font-size: 1.1rem;
+      line-height: 2rem;
+    }
+
+    #check-word, #check-sentence {
+      padding: 0.6rem;
+    }
+
+    @media(max-width: 450px) {
+      #check-word, #check-sentence {
+        margin: 1rem 0;
+      }
+
+      #palindrome-word-input {
+        border: 1px solid grey;
+      }
+
+      #palindrome-sentence-input {
+        border: 1px solid grey;
+      }
+
     }
   </style>
 </head>
+
 <body>
-  <input id = "palindrome-input" />
-  <button id = "check">Check</button>
-  <p id = "result"></p>
+  <input placeholder="check longest palindrome in sentence" id="palindrome-word-input" />
+  <button id="check-word">Check word</button>
+  <p id="word-result"></p>
+
+  <input placeholder="check if sentence is a palindrome" id="palindrome-sentence-input" />
+  <button id="check-sentence">Check sentence</button>
+  <p id="sentence-result"></p>
   <script src="./index.js"></script>
 </body>
+
 </html>
